@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>MNIST dataset</title>
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <style>
+        .no-scroll-y {
+            height: 100vh;
+            overflow: hidden;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- Navabar -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-info">
+        <a href="/" class="navbar-brand">Handwritten Digit Recognition</a>    
+    </nav>
+
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-12 text-center">
+                <p class="font-italic">This project uses the MNSIT dataset to train the machine learning model.</p>
+                <p class="font-italic">It is made by Abhishek Gupta, Abhishek Nigam &amp; Sudhanshu Kr. Jha of 7<sup>th</sup> Sem, CSE under the mentorship of Mrs. Sudha Narang.</p>
+                <button type="button" value="Start" class="btn btn-sm btn-outline-info" id="startStopToggleBtn">Start</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <div class="row">
+
+                    <div class="col-12 text-center mb-2">
+                        <canvas height="280" width="280" id="drawArea"></canvas>
+                    </div>
+                    <div class="col-12">
+                        <div style="width: 280px" class="mx-auto">
+                            <button type="button" class="btn btn-lg btn-block btn-success" id="recogniseBtn">Recognise</button>
+                            <button type="button" class="btn btn-lg btn-block btn-warning" id="clearBtn">Clear</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div style="height: 50px;"></div>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
