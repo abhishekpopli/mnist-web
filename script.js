@@ -169,6 +169,8 @@ function interactEvent(type, e) {
 
 function recognise() {
 
+    recogniseBtn.innerHTML = "Recognising...";
+
     const imageData = ctx.getImageData(0, 0, 280, 280);
     grayscaleImage = convertToGrayscale(imageData);
     const boundingRectangle = getBoundingRectangle(grayscaleImage);
@@ -224,7 +226,31 @@ function recognise() {
         }
     }
 
-    // console.log(output);
+    const objToSend = {data: output}
+
+    fetch('https://mnist-mait.herokuapp.com/recognise', {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(objToSend)
+    })
+        .then(res => res.json())
+        .then(res => {
+            recogniseBtn.innerHTML = `It is ${res.result} :)`;
+
+            setTimeout(() => {
+                recogniseBtn.innerHTML = 'Recognise';
+            }, 5000);
+        })
+        .catch(err => {
+            console.log(err);
+            recogniseBtn.innerHTML = 'Error occurred :(';
+
+            setTimeout(() => {
+                recogniseBtn.innerHTML = 'Recognise';
+            }, 3000);
+        });
 }
 
 function convertToGrayscale(imageData) {
