@@ -1,5 +1,6 @@
 let canvas, ctx, ctx2, grayscaleImage;
 let clearBeforeDrawing = false, continuePaint = false;
+let timeOut;
 
 const startStopToggle = document.getElementById('startStopToggleBtn');
 
@@ -169,6 +170,9 @@ function interactEvent(type, e) {
 
 function recognise() {
 
+    if (timeOut)
+        clearTimeout(timeOut);
+    
     recogniseBtn.innerHTML = "Recognising...";
 
     const imageData = ctx.getImageData(0, 0, 280, 280);
@@ -239,7 +243,7 @@ function recognise() {
         .then(res => {
             recogniseBtn.innerHTML = `It is ${res.result} :)`;
 
-            setTimeout(() => {
+            timeOut = setTimeout(() => {
                 recogniseBtn.innerHTML = 'Recognise';
             }, 5000);
         })
@@ -247,7 +251,7 @@ function recognise() {
             console.log(err);
             recogniseBtn.innerHTML = 'Error occurred :(';
 
-            setTimeout(() => {
+            timeOut = setTimeout(() => {
                 recogniseBtn.innerHTML = 'Recognise';
             }, 3000);
         });
