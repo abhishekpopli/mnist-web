@@ -64,6 +64,12 @@ const clearBtn = document.getElementById('clearBtn');
 const recogniseBtn = document.getElementById('recogniseBtn');
 
 clearBtn.addEventListener('click', () => {
+
+    if (timeOut)
+        clearTimeout(timeOut);
+    
+    recogniseBtn.innerHTML = "Recognise";
+
     ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 })
